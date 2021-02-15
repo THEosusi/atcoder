@@ -22,11 +22,11 @@ int main() {
     if(P!=1){
         mp[P]++;
     }
-    if(mp.size()==0){
-        cout<<1<<endl;
+    int count=1;
+    int aaa=0;
+    int ccc=0;
+    for(auto p:mp){
+        ccc+=1;
     }
-    else{
-
-    }
-
+    cout<<ccc+1<<endl;
 }
