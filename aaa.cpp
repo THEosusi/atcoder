@@ -20,7 +20,7 @@ int main(){
     vector<ll> Not_ans;
     ll check;
     bool flag;
-    rep(i,2,n){
+    rep(i,2,100000){
       check = i * i;
       if(check > n)break;
       flag = false;
