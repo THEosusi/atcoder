@@ -17,6 +17,7 @@ int main() {
         }
         else{
             count++;
+            sum+=vec.at(i);
             aaa=false;
         }
     }
