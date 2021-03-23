@@ -11,14 +11,18 @@ int main() {
     long long sum=vec.at(0);
     long long count=0;
     bool aaa=true;
+    long long stoock=0;
     for(long long i=1;i<N;i++){
         if(sum*2>=vec.at(i)){
             sum+=vec.at(i);
+            stoock++;
         }
         else{
-            count++;
+            stoock++;
+            count+=stoock;
             sum+=vec.at(i);
             aaa=false;
+            stoock=0;
         }
     }
     if(aaa){
