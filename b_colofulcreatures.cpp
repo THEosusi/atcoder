@@ -23,7 +23,8 @@ int main() {
     if(aaa){
         cout<<N<<endl;
     }
-    else{}
+    else{
+        cout<<N-count<<endl;
     }
 
 }
