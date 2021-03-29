@@ -8,20 +8,23 @@ int main() {
     for(int i=0;i<N;i++){
         cin>>vec.at(i);
     }
+    if(N==1){
+        cout<<vec.at(0)*vec.at(0)%mod<<endl;
+        return 0;
+    }
     sort(vec.begin(),vec.end());
     long long sum=0;
-    for(int i=0;i<N-1;i++){
-        long long aaa=0;
-        double count=0;
-        for(int j=i+1;j<N;j++){
-            aaa+=vec.at(j)*pow(2.0,count);
-            count++;
-        }
-        sum+=aaa*vec.at(i);
+    long long kake=vec.at(N-1);
+    for(int i=N-2;0<=i;i--){
+        sum+=vec.at(i)*kake;
         sum%=mod;
+        kake*=2;
+        kake%=mod;
+        kake+=vec.at(i);
+        kake%=mod;
     }
     for(int i=0;i<N;i++){
-        sum+=(vec.at(i)*vec.at(i));
+        sum+=vec.at(i)*vec.at(i)%mod;
         sum%=mod;
     }
     cout<<sum<<endl;
