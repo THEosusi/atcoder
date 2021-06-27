@@ -1,28 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
+ 
+int g(int &x) {
+  x = x * 2;  // xを2倍 (参照によって"呼び出す側の変数"が変更される)
+  return x;
+}
+ 
 int main() {
-    int N;
-    cin>>N;
-    vector<long long>vec(N);
-    long long mod=998244353;
-    for(int i=0;i<N;i++){
-        cin>>vec.at(i);
-    }
-    sort(vec.begin(),vec.end());
-    long long sum=0;
-    for(int i=0;i<N-1;i++){
-        long long aaa=0;
-        double count=0;
-        for(int j=i+1;j<N;j++){
-            aaa+=vec.at(j)*pow(2.0,count);
-            count++;
-        }
-        sum+=aaa*vec.at(i);
-        sum%=mod;
-    }
-    for(int i=0;i<N;i++){
-        sum+=(vec.at(i)*vec.at(i));
-        sum%=mod;
-    }
-    cout<<sum<<endl;
+  int a = 3;  // 関数を呼び出す側の変数
+  int b = g(a);  // xの参照先がaになる
+  b=2;
+  cout << "a: " << a << endl;
+  cout << "b: " << b << endl;
 }

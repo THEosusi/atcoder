@@ -1,41 +1,30 @@
-#include "bits/stdc++.h" 
+#include <bits/stdc++.h>
 using namespace std;
-#define rep(i,a,n) for(ll i=a;i<n;i++)
-#define rerep(i,a,n) for(ll i=n;i>=a;i--)
-#define elif else if
-#define all(s) s.begin(),s.end()
-typedef long long ll;
-int gcd(int a,int b){
-    if(a<b)swap(a,b);
-    if(a%b==0)return b;
-    else return gcd(b,a%b);
-}
-const double pi=3.14159265358979;
-const ll INF = 10e9;
-int main(){
-    cin.tie(0);
-    ios::sync_with_stdio(false);
-    ll n;
-    cin >> n;
-    vector<ll> Not_ans;
-    ll check;
-    bool flag;
-    rep(i,2,100000){
-      check = i * i;
-      if(check > n)break;
-      flag = false;
-      rep(j,0,Not_ans.size()){
-        if(check == Not_ans[j]){
-          flag = true;
-          break;
-        }
-      }
-      if(flag)continue;
-      while(check <= n){
-        Not_ans.emplace_back(check);
-        check *= i;
-      }
+int  combination(int n, int r) {
+  vector<vector<int >> v(n+1, vector<int>(n+1, 0));
+  for (int i = 0; i < v.size(); i++) {
+    v[i][0] = 1;
+    v[i][i] = 1;
+  }
+  for (int j = 1; j < v.size(); j++) {
+    for (int k = 1; k < j; k++) {
+      v[j][k] = (v[j - 1][k - 1] + v[j - 1][k]);
     }
-    cout << n - Not_ans.size() << endl;
-    return 0;
+  }
+  return v[n][r];
+} 
+
+
+int main() {
+  double sum=0;
+  double aa;
+for(int i=1000;i<=3000;i++){
+  aa=0;
+  aa=+log(combination(3000,i));
+  aa+=log((1/2))*3000;
+  sum+=aa;
 }
+cout<<aa<<endl;
+}
+
+
